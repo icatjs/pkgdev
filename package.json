@@ -1,0 +1,20 @@
+{
+  "name": "cpm",
+  "version": "0.0.1",
+  "description": "icat-widget package manager",
+  "main": "./bin/init",
+  "scripts": {
+    "test": "node index"
+  },
+  "repository": "https://github.com/valleykid/cpm.git",
+  "keywords": ["cpm", "icat widget"],
+  "author": "vk",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "json-stringify-safe": "^5.0.1",
+    "commander": "^2.8.1",
+    "prompt": "^0.2.14",
+    "through": "^2.3.7"
+  }
+}

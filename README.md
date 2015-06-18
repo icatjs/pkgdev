@@ -1,10 +1,10 @@
-lowercase
+cpm
 ========================
 
-A demo package of lowercase
+A demo package of cpm
 
 ```{bash}
-npm install cpm -g
+npm install icat-cpm -g
 ```
 
 ## author
