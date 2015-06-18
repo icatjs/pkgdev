@@ -10,7 +10,7 @@ Either through forking or by using [npm](https://www.npmjs.com) (the recommended
 ```{bash}
 npm install -g pkgdev
 ```
-And cpm will be installed in to your bin path.
+And pkgdev will be installed in to your bin path.
 
 
 ## Usage
