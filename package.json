@@ -1,7 +1,7 @@
 {
-  "name": "icat-cpm",
-  "version": "0.0.4",
-  "description": "icat-widget package manager",
+  "name": "pkgdev",
+  "version": "0.0.1",
+  "description": "icat-widget development tool",
   "bin": "./bin/init",
   "main": "./bin/init",
   "scripts": {
@@ -9,9 +9,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/valleykid/cpm.git"
+    "url": "https://github.com/valleykid/pkgdev.git"
   },
-  "keywords": ["cpm", "icat widget"],
+  "keywords": ["wpd", "icat widget development"],
   "author": "vk",
   "preferGlobal": "true",
   "license": "MIT",
