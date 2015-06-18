@@ -1,5 +1,5 @@
 {
-  "name": "cpm",
+  "name": "icat-cpm",
   "version": "0.0.1",
   "description": "icat-widget package manager",
   "main": "./bin/init",
