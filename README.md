@@ -16,7 +16,7 @@ And cpm will be installed in to your bin path.
 ## Usage
 
 ```{bash}
-cpm [folderName]
+icat-cpm [folderName]
 ```
 
 此命令会执行命令行问答，获取创建信息。无folderName表示在当前文件夹下创建。

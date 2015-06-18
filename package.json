@@ -1,7 +1,8 @@
 {
   "name": "icat-cpm",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "icat-widget package manager",
+  "bin": "./bin/init",
   "main": "./bin/init",
   "scripts": {
     "test": "node index"
@@ -12,6 +13,7 @@
   },
   "keywords": ["cpm", "icat widget"],
   "author": "vk",
+  "preferGlobal": "true",
   "license": "MIT",
   "dependencies": {
     "gulp": "^3.9.0",
