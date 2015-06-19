@@ -46,7 +46,7 @@ var questions = [
 	}, {
 		name: 'tpl',
 		message: 'template-file-name',
-		default: 'widget.tpl'
+		default: 'src/widget.tpl'
 	}, {
 		name: 'cssfile',
 		message: 'css-concat-queue'
