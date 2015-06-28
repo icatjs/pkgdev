@@ -1,2 +1,2 @@
-(function(iCat){
-	iCat.widget('<%=name%>', function(){
+(function(root, iCat){
+	iCat = root.ICAT || {};
