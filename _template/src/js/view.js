@@ -2,7 +2,7 @@ var View = iCat.util.getView({
 	model: Model, //from model.js
 	el: '.J_widgetWrap',
 	tpl: '<%=template%>', //This is fixed, don't change!
-	evts: {
+	events: {
 		'click.cc .item': 'changeColor'
 	},
 	changeColor: function(e){

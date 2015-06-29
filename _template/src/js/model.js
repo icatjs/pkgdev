@@ -1,8 +1,8 @@
 var Model = iCat.util.getModel({
-	syncfun: function(fn){
+	asyncfunc: function(fn){
 		var that = this,
 			api = that.get('api') || {},
-			argus = that.get('syncfunArgus'); iCat.log(argus);
+			argus = that.get('afArgus');
 		if(api.testUrl){
 			that.getData(api.testUrl, argus, function(data){
 				fn && fn(data);

@@ -12,7 +12,7 @@
 	iCat.loader.require('jquery, underscore, backbone, testwidget', function(){
 		var v = new iCat.widget.testwidget({ //testwidget(WIDGETNAME)需要手动改写，改成你当前的widget
 			el: '.J_widgetBox',
-			evts: {
+			events: {
 				'click.insert .item': 'insert'
 				//,'click.cc .item': 'insert'
 			},
