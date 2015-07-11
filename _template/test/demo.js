@@ -2,15 +2,12 @@
 	var path = iCat.util.getCurPath() + '/..';
 	iCat.loader.config({
 		alias: {
-			'testwidget': [
-				path + '/style/index.css',
-				path + '/index.js'
-			]
+			'<%=name%>': path + '/index.js'
 		}
 	});
 
-	iCat.loader.require('jquery, underscore, backbone, testwidget', function(){
-		var v = new iCat.widget.testwidget({ //testwidget(WIDGETNAME)需要手动改写，改成你当前的widget
+	iCat.loader.require('jquery, underscore, backbone, <%=name%>', function(){
+		var v = new iCat.widget.<%=name%>({
 			el: '.J_widgetBox',
 			events: {
 				'click.insert .item': 'insert'

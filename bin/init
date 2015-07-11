@@ -37,7 +37,7 @@ var questions = [
 		default: appname
 	}, {
 		name: 'version',
-		default: '0.0.0'
+		default: '0.0.1'
 	}, {
 		name: 'description'
 	}, {
@@ -47,6 +47,10 @@ var questions = [
 		name: 'tpl',
 		message: 'template-file-name',
 		default: 'src/widget.tpl'
+	}, {
+		name: 'style',
+		message: 'css-file-name',
+		default: 'src/widget.css'
 	}, {
 		name: 'cssfile',
 		message: 'css-concat-queue'
@@ -66,7 +70,7 @@ var questions = [
 		name: 'author'
 	}, {
 		name: 'license',
-		default: 'ISC'
+		default: 'MIT'
 	}
 ];
 
