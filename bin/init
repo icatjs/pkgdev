@@ -122,12 +122,14 @@ prompt.get(questions, function(err, result){
 			];
 
 			var content = json2str(result, null, 2),
-				len = __dirname.split(/\\|\//).length;
-			if(!fs.existsSync(result.name)){
+				len = __dirname.split(/\\|\//).length,
+				isRoot = result.name===appname,
+				curpath = isRoot? '.' : result.name;
+			if(!fs.existsSync(result.name) && !isRoot){
 				fs.mkdir(result.name);
 			}
-			fs.writeFile(result.name+'/package.json', content);
-			gulp.src([__dirname+'/../_template/**/*']).pipe(copy(result.name+'/', {prefix:len}));
+			fs.writeFile(curpath+'/package.json', content);
+			gulp.src([__dirname+'/../_template/**/*']).pipe(copy(curpath+'/', {prefix:len}));
 		}
 	});
 });
