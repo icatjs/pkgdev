@@ -14,6 +14,7 @@ var prompt = require('prompt'),
 	json2str = require('json-stringify-safe'),
 	destination_path = program.args.shift() || '.',
 	appname = path.basename(path.resolve(destination_path)),
+	curfolder = path.basename(path.resolve('.')),
 	o = {};
 
 prompt.message = '[?]'.yellow;
@@ -123,7 +124,7 @@ prompt.get(questions, function(err, result){
 
 			var content = json2str(result, null, 2),
 				len = __dirname.split(/\\|\//).length,
-				isRoot = result.name===appname,
+				isRoot = result.name===curfolder,
 				curpath = isRoot? '.' : result.name;
 			if(!fs.existsSync(result.name) && !isRoot){
 				fs.mkdir(result.name);
