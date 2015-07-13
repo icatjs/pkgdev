@@ -5,30 +5,20 @@ var path = require('path'), fs = require('fs'),
 	gulp = require('gulp'), pkg = require('../package.json'),
 	copy = require('../lib/copy');
 
-program
-  .version(pkg.version)
-  .usage('[options] [dir]')
-  .parse(process.argv);
+program.version(pkg.version).usage('[options] [dir]').parse(process.argv);
 
 var prompt = require('prompt'),
 	json2str = require('json-stringify-safe'),
+	base_path = path.resolve('.'),
 	destination_path = program.args.shift() || '.',
 	appname = path.basename(path.resolve(destination_path)),
-	curfolder = path.basename(path.resolve('.')),
+	curfolder = path.basename(base_path),
 	o = {};
 
 prompt.message = '[?]'.yellow;
 prompt.delimiter = ':';
 prompt.colors = false;
 prompt.start();
-
-/*function json2str(data){
-	var str = JSON.stringify(data);
-		str = str.split(',').join(',\n');
-		str = str.replace(/(\{|\[)/g, '$1\n').replace(/(\}|\])/g, '\n$1');
-		str = str.replace(/([^\n]+)\:/g, '  $1: ');
-	return str;
-}*/
 
 var questions = [
 	{
@@ -123,14 +113,14 @@ prompt.get(questions, function(err, result){
 			];
 
 			var content = json2str(result, null, 2),
-				len = __dirname.split(/\\|\//).length,
+				len = __dirname.split(/\\|\//).length + (base_path.charAt(0)==='/'? base_path.split(/\\|\//).length-2 : 0),
 				isRoot = result.name===curfolder,
 				curpath = isRoot? '.' : result.name;
 			if(!fs.existsSync(result.name) && !isRoot){
 				fs.mkdir(result.name);
 			}
-			fs.writeFile(curpath+'/package.json', content);
 			gulp.src([__dirname+'/../_template/**/*']).pipe(copy(curpath+'/', {prefix:len}));
+			fs.writeFile(curpath+'/package.json', content);
 		}
 	});
 });
