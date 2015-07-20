@@ -2,13 +2,66 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="format-detection" content="email=no" />
 	<title>Document</title>
 	<link rel="stylesheet" href="http://vkassets.sinaapp.com/lib/icatcss/core.min.css"/>
-	<script src="http://vkassets.sinaapp.com/lib/icat/icat.min.js" data-main="test/demo"></script>
-	<style>.box{max-width:600px; margin:20px auto; padding:10px; border:solid 1px #efefef;}</style>
+	<script src="http://vkassets.sinaapp.com/lib/icat/icat.min.js?t=10010"
+		data-main="test/demo" data-deps="jquery, bootstrap"></script>
+	<style>
+		.box{max-width:600px; margin:40px auto 20px; padding:10px; border:solid 1px #efefef;}
+		.box.J_otherWrap{border-color:#f00;}
+		.box widget + .copy{margin-top:10px;}
+		.box .copy .item{display:inline-block; padding:2px 10px; font-size:20px;}
+
+		.tools-wrap{position:fixed; left:0; top:0; width:100%; line-height:30px; background:#e3e3e3;}
+		.tools-wrap .t-box{padding:0 20px;}
+		.tools-wrap .t-box i, .tools-wrap .t-box b{cursor:pointer;}
+
+		.tab-box ul{overflow:hidden; border-bottom:solid 1px #efefef;}
+		.tab-box ul li{float:left; width:120px;}
+		.tab-box ul li span{display:block; padding:5px 0; text-align:center; cursor:pointer;}
+		.tab-box .content .item{display:none;}
+		.tab-box .content .item:first-child{display:block;}
+		.tab-box .selected{background:#efefef;}
+
+		.select-wrap{border:0; padding:0;}
+		.select-wrap .form-control{width:50%;}
+	</style>
 </head>
 <body>
-	<div class="box J_widgetBox">loading...Render me first</div>
-	<div class="box J_otherWrap">loading...</div>
+	<div class="box select-wrap J_selectStyle">
+		<select class="form-control">
+			<option value="0">形态1：普通区块</option>
+			<option value="1">形态2：小工具</option>
+			<option value="2">形态3：tab卡片</option>
+		</select>
+	</div>
+	
+	<div class="box J_widgetBox J_testBox">loading...Render me first</div>
+	<div class="tools-wrap J_testBox" style="display:none;">
+		<div class="t-box">
+			<span icat-widget="demo-pop"></span>
+		</div>
+	</div>
+	<div class="box tab-box J_tabBox J_testBox" style="display:none;">
+		<ul>
+			<li class="selected"><span>tab1</span></li>
+			<li><span>tab2</span></li>
+			<li icat-widget="demo-tab"><span>tab3</span></li>
+		</ul>
+		<div class="content">
+			<div class="item"> test-box1 </div>
+			<div class="item"> test-box2...haha </div>
+			<div class="item J_tabWidget"> test-box3...hehe </div>
+		</div>
+	</div>
+	
+	<div class="box J_otherWrap">
+		<div class="copy">copy text...</div>
+	</div>
 </body>
 </html>
