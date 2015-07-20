@@ -119,6 +119,7 @@ prompt.get(questions, function(err, result){
 			if(!fs.existsSync(result.name) && !isRoot){
 				fs.mkdir(result.name);
 			}
+			
 			gulp.src([__dirname+'/../_template/**/*']).pipe(copy(curpath+'/', {prefix:len}));
 			fs.writeFile(curpath+'/package.json', content);
 		}
