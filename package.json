@@ -1,6 +1,6 @@
 {
   "name": "pkgdev",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "icat-widget development tool",
   "bin": "./bin/init",
   "main": "./bin/init",
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "https://github.com/valleykid/pkgdev.git"
   },
-  "keywords": ["wpd", "icat widget development"],
+  "keywords": ["wpd", "widget package", "icat widget development"],
   "author": "vk",
   "preferGlobal": "true",
   "license": "MIT",

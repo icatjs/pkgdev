@@ -14,67 +14,25 @@
 					'click.tab .J_tabBox li': 'tabSwitch'
 				});
 				
-				iCat.loader.require('underscore, backbone, <%=name%>', 'demoIt');
+				iCat.loader.require('underscore, backbone, <%=name%>', 'normal'); //默认实例化区块形态的view
 			},
 
-			selectStyle: function(e){
-				var me = $(e.currentTarget), val = me.val(),
-					widget = this.oWidget, handle = widget.$parasitifer;
-
-				$('.J_testBox').hide().eq(val).show();
-				
-				//widget.remove();
-				widget.$el.empty();
-				widget.stopListening();
-				if(handle){
-					handle.empty();
-					if(handle.attr('icat-widget')=='demo-tab'){
-						handle.closest('.J_tabBox').find('li:eq(0)').trigger('click');
-					}
-				} else {
-					widget.$el.html('loading...Render me first');
-				}
-
-				this.oWidget = widget.copy({
-					el: val==0? '.J_widgetBox' : val==1? '.J_toolWidget' : '.J_tabWidget',
-					displayType: val
-				});
-				/*this.demoIt({
-					el: val==0? '.J_widgetBox' : val==1? '.J_toolWidget' : '.J_tabWidget',
-					displayType: val
-				});*/
-
-				if(val==2 && $('.J_tabBox [icat-widget]').hasClass('selected')){
-					this.oWidget.model.set('api', {testUrl:'test/data.json'});
-				}
-			},
-
-			tabSwitch: function(e){
-				var me = $(e.currentTarget),
-					index = $('.J_tabBox li').index(me);
-				me.addClass('selected').siblings('li').removeClass('selected');
-				$('.J_tabBox .item').eq(index).show().siblings('.item').hide();
-
-				if(me.attr('icat-widget')){
-					var view = $('.J_tabWidget').getCurrentView();
-					if(view) view.model.set('api', {testUrl:'test/data.json'});
-				}
-			},
-
-			demoIt: function(cfg){
-				this.oWidget = new iCat.widget.<%=name%>(_.extend({
+			//---style1
+			normal: function(){ 
+				this.oWidget = new iCat.widget.<%=name%>({
 					el: '.J_widgetBox',
-					//style: false, // Don't use the default
+					//style: false,
 					//dcname: 'test', // --way1: chunk-data render
 					events: {
 						'click.insert .item': 'insert'
 						//,'click.cc .item': 'insert'
+						, '2@click .J_handleBtn': ''
 					},
 					mconfig: {
 						//api: {testUrl: 'test/data.json'}, // --way2: ajax-data render
 						//afArgus: {a:1, b:2},
 						MergeData: { // --way3: user-data render
-							btnText: 'what are you Ūɶ��',
+							btnText: 'what are you 弄啥类',
 							results: [
 								{name:1}, {name:2}, {name:3}
 							]
@@ -86,7 +44,58 @@
 							$(e.currentTarget).clone()
 						);
 					}
-				}, cfg));
+				});
+			},
+
+			//---style2
+			tool: function(){
+				var w = this.oWidget.copy({
+					el: '.J_toolWidget',
+					menu: '[data-widgetBtn="demo-pop"]',
+					events: {
+						'1@click.me .J_handleBtn': function(e){ console.log(e.currentTarget); }
+					},
+					displayType: 1
+				});
+				return w;
+			},
+
+			//---style3
+			tab: function(){
+				var w = this.oWidget.copy({
+					el: '.J_tabWidget',
+					menu: '[data-widgetBtn="demo-tab"]',
+					displayType: 2
+				});
+				return w;
+			},
+
+			selectStyle: function(e){
+				var me = $(e.currentTarget), val = me.val(),
+					toolView = $('.J_toolWidget').getCurrentView(),
+					tabView = $('.J_tabWidget').getCurrentView();
+
+				$('.J_testBox').hide().eq(val).show();
+
+				if(val==1 && !toolView){ //切换到tool形态，如果从未实例化view，执行实例化
+					this.tool();
+				}
+
+				if(val==2 && !tabView){ //切换到tab形态，如果从未实例化view，执行实例化
+					this.tab();
+				}
+			},
+
+			tabSwitch: function(e){
+				var me = $(e.currentTarget),
+					index = $('.J_tabBox li').index(me);
+				me.addClass('selected').siblings('li').removeClass('selected');
+				$('.J_tabBox .item').eq(index).show().siblings('.item').hide();
+
+				if(me.attr('data-widgetBtn')){
+					var view = me.getCurrentView();
+					if(view) view.model.set('api', {testUrl:'test/data.json'});
+				}
 			}
 		};
 	});
