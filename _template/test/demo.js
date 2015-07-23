@@ -26,7 +26,7 @@
 					events: {
 						'click.insert .item': 'insert'
 						//,'click.cc .item': 'insert'
-						, '2@click .J_handleBtn': ''
+						//, '2@click .J_handleBtn': ''
 					},
 					mconfig: {
 						//api: {testUrl: 'test/data.json'}, // --way2: ajax-data render
