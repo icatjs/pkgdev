@@ -1,6 +1,6 @@
 {
   "name": "pkgdev",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "icat-widget development tool",
   "bin": "./bin/init",
   "main": "./bin/init",

@@ -22,15 +22,15 @@
 				this.oWidget = new iCat.widget.<%=name%>({
 					el: '.J_widgetBox',
 					//style: false,
-					//dcname: 'test', // --way1: chunk-data render
 					events: {
 						'click.insert .item': 'insert'
 						//,'click.cc .item': 'insert'
 						//, '2@click .J_handleBtn': ''
 					},
 					mconfig: {
+						//dcname: 'test', // --way1: chunk-data render
 						//api: {testUrl: 'test/data.json'}, // --way2: ajax-data render
-						//afArgus: {a:1, b:2},
+						//ajaxargus: {a:1, b:2},
 						MergeData: { // --way3: user-data render
 							btnText: 'what are you 弄啥类',
 							results: [

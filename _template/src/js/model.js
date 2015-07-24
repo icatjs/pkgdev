@@ -2,7 +2,7 @@ var Model = iCat.util.getModel({
 	asyncfunc: function(fn){
 		var that = this,
 			api = that.get('api') || {},
-			argus = that.get('afArgus');
+			argus = that.get('ajaxargus');
 		if(api.testUrl){
 			that.getData(api.testUrl, argus, function(data){
 				fn && fn(data);
