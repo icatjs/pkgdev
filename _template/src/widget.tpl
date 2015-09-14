@@ -13,7 +13,7 @@
 			<!--<b title="<%-o.btnText%>">click me...</b>-->
 		</span>
 	<%}else{%>
-		<div class="modal fade" id="<%-o.modalId? o.modalId : 'myModal'%>" role="dialog">
+		<div class="modal fade" id="<%-o.modalId || 'myModal'%>" role="dialog">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -39,7 +39,7 @@
 	<%}%>
 <%}else{%>
 <div class="panel">
-	<h3><%-o.md_title? o.md_title : '变色魔方'%>：
+	<h3><%-o.md_title || '变色魔方'%>：
 		<b class="text-muted"><%-o.md_desc? o.md_desc : '多次点击模块 会改变颜色'%></b></h3>
 	<%-o.micro.list()%>
 </div>
