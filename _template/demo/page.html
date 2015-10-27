@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="format-detection" content="email=no" />
+	
+	<title>widget test</title>
+	<link rel="stylesheet" href="http://vkassets.sinaapp.com/lib/icatcss/core.min.css"/>
+	<link rel="stylesheet" href="page.css">
+
+	<script src="http://vkassets.sinaapp.com/lib/icat/0.0.1/icat.min.js"
+		data-main="/demo/main" data-deps="mvclib, bootstrap"></script>
+</head>
+<body>
+	<div class="box select-wrap J_selectStyle">
+		<select class="form-control">
+			<option value="0">形态1：普通区块</option>
+			<option value="1">形态2：小工具</option>
+			<option value="2">形态3：tab卡片</option>
+		</select>
+	</div>
+	
+	<!-- board -->
+	<div class="kanban J_otherWrap">
+		<div class="copy">Render text...</div>
+	</div>
+
+	<script id="J_kanban" type="text/icat-template">
+		<span class="item" style="background-color:<%-o.color%>"><%-o.text%></span>
+	</script>
+	
+	<!-- style1 -->
+	<div class="box J_testBox">
+		<div class="J_widgetBox"
+			data-MergeData="md_title=>Color Magic, md_desc=>Clicking more will change color">one</div>
+	</div>
+	
+	<!-- style2 -->
+	<div class="tools-wrap J_testBox" style="display:none;">
+		<div class="t-box">
+			<span data-widgetBtn="demo-pop" data-MergeData="cla=>fa-lock"></span>
+			<span data-widgetBtn="demo-pop"></span>
+		</div>
+	</div>
+	<div class="J_toolWidget"></div>
+	
+	<!-- style3 -->
+	<div class="box tab-box J_tabBox J_testBox" style="display:none;">
+		<ul>
+			<li class="selected"><span>tab1</span></li>
+			<li><span>tab2</span></li>
+			<li data-widgetBtn="demo-tab"><span>tab3</span></li>
+		</ul>
+		<div class="content">
+			<div class="item"> test-box1 </div>
+			<div class="item"> test-box2...haha </div>
+			<div class="item J_tabWidget"> test-box3...hehe </div>
+		</div>
+	</div>
+</body>
+</html>

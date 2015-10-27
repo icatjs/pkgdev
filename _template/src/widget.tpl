@@ -23,7 +23,7 @@
 						<h4 class="modal-title" id="myModalLabel">Modal title</h4>
 					</div>
 					<div class="modal-body">
-						<div class="panel" lazy-load-wrap="list"><%-o.micro.list()%></div>
+						<div class="panel" lazy-load-wrap="list" data-from="${name}"><%-o.micro.list()%></div>
 					</div>
 				</div>
 			</div>
@@ -44,4 +44,3 @@
 	<%-o.micro.list()%>
 </div>
 <%}%>
-

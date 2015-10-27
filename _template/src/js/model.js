@@ -12,9 +12,22 @@
 			}
 		},
 
+		getColor: function(text){
+			var colors = ['red', 'blue', 'green', 'yellow', 'gray', 'brown'],
+				index = Math.floor(Math.random()*6),
+				color = colors[index];
+			if(this.sendMessage){
+				this.sendMessage('testMsg', {
+					text: text, color: color
+				});
+			}
+			return color;
+		},
+
 		protocols: {
-			triggerChange: function(msg){
-				this.set('changeData', msg);
+			getReply: function(msg){
+				console.log(msg);
+				//this.set('changeData', msg);
 			}
 		}
 		// This(↑) is an example only, please change the source code to yours...

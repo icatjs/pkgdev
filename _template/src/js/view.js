@@ -10,23 +10,14 @@
 		},
 		changeColor: function(e){
 			e.preventDefault();
-			var colors = ['red', 'blue', 'green', 'yellow', 'gray', 'brown'],
-				index = Math.floor(Math.random()*6);
-			$(e.currentTarget).css('background', colors[index]);
+			var me = $(e.currentTarget),
+				color = this.model? this.model.getColor(me.html()) : 'gray';
+			me.css('background', color);
 		},
 
 		widgetShow: function(){
-			var model = this.model,
-				md = model.get('MergeData');
+			var md = this.model? this.model.get('MergeData') : {};
 			$('#'+(md.modalId || 'myModal')).modal('show');
-			
-			//this.model.set('api', {testUrl: 'test/data.json'});
-			this.model.set('MergeData', {
-				results: [
-					{name:1}, {name:2}, {name:3},
-					{name:4}, {name:5}, {name:6}
-				]
-			});
 		}
 		// This(↑) is an example only, please modify the source code to yours...
 		// your code...

@@ -1,0 +1,18 @@
+.box{max-width:600px; margin:40px auto 20px; padding:10px; border:solid 1px #efefef;}
+.kanban{max-width:600px; margin:10px auto; box-shadow:inset 0 1px 1px rgba(0, 0, 0, .075); border:solid 1px #ccc; line-height:55px; text-align:center;}
+.kanban .copy .item{display:inline-block; line-height:20px; padding:2px 10px; font-size:20px;}
+
+.tools-wrap{position:fixed; left:0; top:0; width:100%; line-height:30px; background:#e3e3e3;}
+.tools-wrap .t-box{padding:0 20px;}
+.tools-wrap .t-box i, .tools-wrap .t-box b{cursor:pointer;}
+.tools-wrap .t-box [data-widgetBtn="demo-pop"]{display:inline-block; margin:0 5px;}
+
+.tab-box ul{overflow:hidden; border-bottom:solid 1px #efefef;}
+.tab-box ul li{float:left; width:120px;}
+.tab-box ul li span{display:block; padding:5px 0; text-align:center; cursor:pointer;}
+.tab-box .content .item{display:none;}
+.tab-box .content .item:first-child{display:block;}
+.tab-box .selected{background:#efefef;}
+
+.select-wrap{border:0; padding:0;}
+.select-wrap .form-control{width:50%;}
