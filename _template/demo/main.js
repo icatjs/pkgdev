@@ -1,4 +1,14 @@
 (function(iCat){
+	iCat.loader.config({
+		vars: {
+			path: iCat.util.getCurPath()
+		},
+		alias: {
+			'<%=name%>': '{path}/../index',
+			'mockdata': '{path}/mockdata'
+		}
+	});
+
 	iCat.app('Demo', function(){
 		//events
 		iCat.util.bindEvent({
@@ -29,7 +39,7 @@
 				new (iCat.util.getController())();
 
 				new iCat.widget.Kanban; //被通信的widget
-				iCat.loader.require('mock, /demo/mockdata, /index', 'normal'); //默认实例化区块形态的view
+				iCat.loader.require('mock, mockdata, <%=name%>', 'normal'); //默认实例化区块形态的view
 			},
 
 			//---style1
