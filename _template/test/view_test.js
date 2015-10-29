@@ -1,7 +1,8 @@
 var iCat = ICAT, Model;
+var path = iCat.util.getCurPath();
 iCat.util.getView = function(cfg){ return cfg; };
 
-iCat.loader.require('mvclib, /src/js/view', function(){
+iCat.loader.require(['mvclib', path+'/../src/js/view'], function(){
 	test('test', function(){deepEqual(true, true);});
 	
 	View.changeColor({
