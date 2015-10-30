@@ -2,7 +2,10 @@
 		asyncfunc: function(fn){
 			var that = this,
 				api = that.get('api') || {},
-				argus = that.get('ajaxargus');
+				p = that.commParams, argus = {};
+			
+			argus['dataType'] = p.params.dataType;
+			
 			if(api.testUrl){
 				that.getData(api.testUrl, argus, function(data){
 					fn && fn(data);

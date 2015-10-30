@@ -55,8 +55,7 @@
 					mconfig: {
 						//dcname: 'test', // --way1: chunk-data render
 						//api: {testUrl: 'test/data.json'}, // --way2: ajax-data render
-						//ajaxargus: {a:1, b:2},
-						//ajaxconfig: {dataType:'json'},
+						//params: {a:1, b:2},
 						MergeData: Mock.mock(Demo.mockdata.init) // --way3: user-data render
 					},
 
@@ -77,7 +76,7 @@
 					},
 					displayType: 1,
 					mconfig: {
-						ajaxconfig: {dataType:'json'},
+						params: {dataType:'json'},
 						api: {testUrl: '/data/mytest'}
 					}
 				});
@@ -92,7 +91,7 @@
 					menu: '[data-widgetBtn="demo-tab"]',
 					displayType: 2,
 					mconfig: {
-						ajaxconfig: {dataType:'json'}
+						params: {dataType:'json'}
 					}
 				});
 				return w;
